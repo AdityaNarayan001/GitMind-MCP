@@ -1,4 +1,4 @@
-# GitMind-MCP
+# GitMind-MCP(Model Context Protocol) Server
 
 ## Overview
 
