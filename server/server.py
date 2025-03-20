@@ -65,21 +65,5 @@ def get_repos():
     else:
         return jsonify({"result": "FAILED"}), 401
 
-
-
-# @app.route('/api/data', methods=['GET'])
-# def get_data():
-#     sample_data = {
-#         "id": 1,
-#         "name": "Aditya",
-#         "role": "Developer"
-#     }
-#     return jsonify(sample_data)
-
-# @app.route('/api/data', methods=['POST'])
-# def post_data():
-#     data = request.get_json()
-#     return jsonify({"received": data}), 201
-
 if __name__ == '__main__':
     app.run(debug=False)
