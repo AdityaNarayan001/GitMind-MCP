@@ -21,6 +21,7 @@ try:
         print('')
         print(f"STATUS   : {cred_response.json()['status']}")
         print(f"USERNAME : {cred_response.json()['username']} \n")
+        print(f"AVAILABLE FEATURES : {cred_response.json()['available_features']['functions']} \n")
 
     else:
         print("Server is down!")

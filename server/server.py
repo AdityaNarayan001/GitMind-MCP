@@ -3,6 +3,16 @@ import requests
 
 app = Flask(__name__)
 
+availabe_features = {
+        "functions": [
+            {
+                'id':'F001',
+                'function_name':'get_repos',
+                'function_description':'Fetches Names of all Repositories.',
+            }
+        ]
+}
+
 @app.route('/healthCheck', methods=['GET'])
 def home():
     return jsonify({"status": "OK"})
@@ -23,7 +33,7 @@ def auth():
 
     if response.status_code == 200:
         username = response.json()['login']
-        return jsonify({"status": "User Verified ✅ ", "username": username})
+        return jsonify({"status": "User Verified ✅ ", "username": username, "available_features": availabe_features})
     else:
         return jsonify({"status": "FAILED 🚫 ", "username": "NONE"}), 401
 
