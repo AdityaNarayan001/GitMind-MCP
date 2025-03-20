@@ -21,7 +21,18 @@ try:
         print('')
         print(f"STATUS   : {cred_response.json()['status']}")
         print(f"USERNAME : {cred_response.json()['username']} \n")
-        print(f"AVAILABLE FEATURES : {cred_response.json()['available_features']['functions']} \n")
+        available_features = cred_response.json()['available_features']['functions']
+        print(f"AVAILABLE FEATURES : {available_features} \n")
+
+        # LLM Loop is initiated
+        print("Enter your Queries below, type 'exit' to quit. \n")
+        while True:
+            user_input = input("You 👨 : ")
+            if user_input.lower() == "exit":
+                print("Exiting chat...")
+                break
+            llm_response = llm(available_features, user_input)
+            print("LLM 🤖 : ", llm_response, "\n")
 
     else:
         print("Server is down!")

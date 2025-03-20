@@ -3,9 +3,9 @@ import json
 
 from utils.system_prompt import sys_prompt
 
-def llm(content):
+def llm(available_features, content):
     messages = [
-        {"role": "system", "content": f'{sys_prompt}'},
+        {"role": "system", "content": 'Available Features : ' + f'{available_features}' + 'Instructions : ' + f'{sys_prompt}'},
         {"role": "user", "content": f'{content}'}
     ]
 
