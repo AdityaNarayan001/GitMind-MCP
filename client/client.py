@@ -1,4 +1,5 @@
 import requests
+import json
 from utils.llm import llm
 
 BASE_URL = "http://127.0.0.1:5000"
@@ -31,8 +32,16 @@ try:
             if user_input.lower() == "exit":
                 print("Exiting chat...")
                 break
+
             llm_response = llm(available_features, user_input)
-            print("LLM 🤖 : ", llm_response, "\n")
+            llm_response = json.loads(llm_response)
+
+            if llm_response['function_name'] == 'None':
+                print("LLM 🤖 : ", llm_response['answer'], "\n")
+            if llm_response['function_name'] == 'get_repos':
+                repos_response = requests.get(f"{BASE_URL}/get_repos")
+                print("LLM 🤖 : ", llm_response['answer'], "\n")
+                print(repos_response.json()['result'])
 
     else:
         print("Server is down!")
