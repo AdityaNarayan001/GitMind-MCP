@@ -23,6 +23,6 @@ def llm(content):
     except json.JSONDecodeError:
         return "Error: Response is not valid JSON"
     
-# TODO: Add chat context to the model. chat_history
+
 # TODO: improve response type to client.
 # TODO: build general MCP client
