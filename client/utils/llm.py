@@ -3,17 +3,17 @@ import json
 
 from utils.system_prompt import sys_prompt
 
-def llm(available_features, content):
-    messages = [
-        {"role": "system", "content": 'Instructions : ' + f'{sys_prompt}' + 'Available Features : ' + f'{available_features}'},
-        {"role": "user", "content": f'{content}'}
-    ]
+chat_history = []
+chat_history.append({"role": "system", "content": 'Instructions : ' + f'{sys_prompt}'})
+def llm(content):
+
+    chat_history.append({"role": "user", "content": f'{content}'})
 
     response = ollama.chat(
-        model="llama3.1", 
-        messages=messages,
+        model="mistral", 
+        messages=chat_history,
         options= {
-            "temperature": 0.2
+            "temperature": 0.5
             }
         )
 

@@ -1,6 +1,6 @@
 import requests
 import json
-from utils.llm import llm
+from utils.llm import llm, chat_history
 
 BASE_URL = "http://127.0.0.1:5000"
 
@@ -24,6 +24,7 @@ try:
         print(f"USERNAME : {cred_response.json()['username']} \n")
         available_features = cred_response.json()['available_features']['functions']
         print(f"AVAILABLE FEATURES : {available_features} \n")
+        chat_history.append({"role": "user", "content": f'{available_features}'})
 
         # LLM Loop is initiated
         print("Enter your Queries below, type 'exit' to quit. \n")
@@ -33,15 +34,17 @@ try:
                 print("Exiting chat...")
                 break
 
-            llm_response = llm(available_features, user_input)
+            llm_response = llm(user_input)
             llm_response = json.loads(llm_response)
-
             if llm_response['function_name'] == 'None':
                 print("LLM 🤖 : ", llm_response['answer'], "\n")
+                chat_history.append({"role": "assistant", "content": llm_response['answer']})
             if llm_response['function_name'] == 'get_repos':
                 repos_response = requests.get(f"{BASE_URL}/get_repos")
                 print("LLM 🤖 : ", llm_response['answer'], "\n")
+                chat_history.append({"role": "assistant", "content": llm_response['answer']})
                 print(repos_response.json()['result'])
+                chat_history.append({"role": "assistant", "content": repos_response.json()['result']})
 
     else:
         print("Server is down!")

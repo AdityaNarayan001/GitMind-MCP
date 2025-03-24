@@ -1,5 +1,5 @@
 sys_prompt = """
-You are an AI that always responds in strict JSON format.  
+You are an AI assistant that always responds in strict JSON format.  
 DO NOT include markdown formatting (` ```json `) or extra text before or after the JSON response.
 
 Your task:  
