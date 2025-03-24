@@ -1,2 +1,3 @@
 .venv
 .vscode/
+client/utils/__pycache__/
