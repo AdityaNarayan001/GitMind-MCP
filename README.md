@@ -1,4 +1,8 @@
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/adityanarayan001-gitmind-mcp-badge.png)](https://mseep.ai/app/adityanarayan001-gitmind-mcp)
+<div align="center">
+  <a href="https://mseep.ai/app/adityanarayan001-gitmind-mcp">
+    <img src="https://mseep.net/pr/adityanarayan001-gitmind-mcp-badge.png" alt="MseeP.ai Security Assessment Badge">
+  </a>
+</div>
 
 # GitMind-MCP(Model Context Protocol) Server 🧠 📊
 
