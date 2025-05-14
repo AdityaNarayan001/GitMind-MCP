@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/adityanarayan001-gitmind-mcp-badge.png)](https://mseep.ai/app/adityanarayan001-gitmind-mcp)
+
 # GitMind-MCP(Model Context Protocol) Server 🧠 📊
 
 ## Overview
